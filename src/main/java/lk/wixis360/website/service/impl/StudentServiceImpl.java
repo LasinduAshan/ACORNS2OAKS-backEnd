@@ -11,6 +11,7 @@ import lk.wixis360.website.service.StudentService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,6 +37,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     ModelMapper mapper;
+
+    @Value("${student.image.upload.path}")
+    String student_image_upload_path;
 
 
     @Override
@@ -129,7 +133,8 @@ public class StudentServiceImpl implements StudentService {
     public void updateStudentNewPhoto(MultipartFile file, String sid) {
 
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/photos/" + file.getOriginalFilename();
-        String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/photos/student/"+file.getOriginalFilename();
+        String interrPath = student_image_upload_path+file.getOriginalFilename();
+        //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/photos/student/"+file.getOriginalFilename();
         String imagePath =  "photos/student/"+file.getOriginalFilename();
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
         System.out.println("File name " + file.getOriginalFilename());

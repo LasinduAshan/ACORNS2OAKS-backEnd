@@ -12,6 +12,7 @@ import lk.wixis360.website.service.AccountService;
 import lk.wixis360.website.service.FileUploadService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,15 +41,21 @@ public class FileUploadServiceImpl implements FileUploadService {
     @Autowired
     ModelMapper mapper;
 
+    @Value("${videos.upload.path}")
+    String videos_upload_path;
 
     @Override
     public void saveFile(MultipartFile files, String cid) {
+
+        System.out.println(videos_upload_path+"             .................................................................");
+
 
         //E:/Quasar Projects/wixis app updates/ACORNS2OAKS/src/assets
         //E:/Quasar Projects/wixis-360/ACORNS2OAKS/src/assets/videos
         /*E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/videos*/
        // String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/videos/" + files.getOriginalFilename();
-        String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/videos/" + files.getOriginalFilename();
+        String interrPath = videos_upload_path + files.getOriginalFilename();
+        //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/videos/" + files.getOriginalFilename();
         //String videoPath =  "../assets/videos/"+files.getOriginalFilename();
         String videoPath =  "videos/"+files.getOriginalFilename();
         System.out.println("File name " + files.getOriginalFilename());

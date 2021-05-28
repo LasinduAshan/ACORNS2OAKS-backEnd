@@ -4,5 +4,10 @@
       "name": "upload.path",
       "type": "java.lang.String",
       "description": "Description for upload.path."
-  }
-] }
+    },
+    {
+      "name": "videos.upload.path",
+      "type": "java.lang.String",
+      "description": "Description for videos.upload.path."
+    }
+  ] }

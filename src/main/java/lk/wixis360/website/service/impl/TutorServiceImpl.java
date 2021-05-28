@@ -13,6 +13,7 @@ import lk.wixis360.website.service.TutorService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,6 +43,8 @@ public class TutorServiceImpl implements TutorService {
     @Autowired
     ModelMapper mapper;
 
+    @Value("${tutor.image.upload.path}")
+    String tutor_image_upload_path;
 
     @Override
     public void saveTutor(TutorDTO dto) {
@@ -90,7 +93,7 @@ public class TutorServiceImpl implements TutorService {
 
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/photos/" + file.getOriginalFilename();
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/"+file.getOriginalFilename();
-        String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/photos/tutor/"+file.getOriginalFilename();
+        String interrPath = tutor_image_upload_path+file.getOriginalFilename();
         String imagePath =  "photos/tutor/"+file.getOriginalFilename();
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
         System.out.println("File name " + file.getOriginalFilename());

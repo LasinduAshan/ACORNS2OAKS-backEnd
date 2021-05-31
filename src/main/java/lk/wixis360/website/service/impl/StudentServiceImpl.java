@@ -133,9 +133,12 @@ public class StudentServiceImpl implements StudentService {
     public void updateStudentNewPhoto(MultipartFile file, String sid) {
 
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/photos/" + file.getOriginalFilename();
+
         String interrPath = student_image_upload_path+file.getOriginalFilename();
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/photos/student/"+file.getOriginalFilename();
-        String imagePath =  "photos/student/"+file.getOriginalFilename();
+        //String imagePath =  "photos/student/"+file.getOriginalFilename();
+        String imagePath =  student_image_upload_path+file.getOriginalFilename();
+
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
         System.out.println("File name " + file.getOriginalFilename());
         System.out.println("image path " + imagePath);

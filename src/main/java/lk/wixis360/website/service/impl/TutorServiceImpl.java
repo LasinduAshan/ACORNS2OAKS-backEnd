@@ -93,8 +93,11 @@ public class TutorServiceImpl implements TutorService {
 
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/photos/" + file.getOriginalFilename();
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/"+file.getOriginalFilename();
+
         String interrPath = tutor_image_upload_path+file.getOriginalFilename();
-        String imagePath =  "photos/tutor/"+file.getOriginalFilename();
+        //String imagePath =  "photos/tutor/"+file.getOriginalFilename();
+        String imagePath =  tutor_image_upload_path+file.getOriginalFilename();
+
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
         System.out.println("File name " + file.getOriginalFilename());
         System.out.println("image path " + imagePath);

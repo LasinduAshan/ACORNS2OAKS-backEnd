@@ -59,9 +59,12 @@ public class CourseServiceImpl implements CourseService {
 
        // String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/photos/" + file.getOriginalFilename();
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/photos/course/" + file.getOriginalFilename();
+
         String interrPath = images_upload_path + file.getOriginalFilename();
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
-        String imagePath =  "photos/course/"+file.getOriginalFilename();
+        //String imagePath =  "photos/course/"+file.getOriginalFilename();
+        String imagePath =  images_upload_path+file.getOriginalFilename();
+        
         System.out.println("File name " + file.getOriginalFilename());
         System.out.println("image path " + imagePath);
         System.out.println(dto.toString());

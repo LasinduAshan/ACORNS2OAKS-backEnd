@@ -50,14 +50,15 @@ public class FileUploadServiceImpl implements FileUploadService {
         System.out.println(videos_upload_path+"             .................................................................");
 
 
-        //E:/Quasar Projects/wixis app updates/ACORNS2OAKS/src/assets
-        //E:/Quasar Projects/wixis-360/ACORNS2OAKS/src/assets/videos
-        /*E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/videos*/
+
        // String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/src/assets/videos/" + files.getOriginalFilename();
+
         String interrPath = videos_upload_path + files.getOriginalFilename();
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/videos/" + files.getOriginalFilename();
         //String videoPath =  "../assets/videos/"+files.getOriginalFilename();
-        String videoPath =  "videos/"+files.getOriginalFilename();
+        //String videoPath =  "videos/"+files.getOriginalFilename();
+        String videoPath =  videos_upload_path+files.getOriginalFilename();
+
         System.out.println("File name " + files.getOriginalFilename());
         System.out.println("video path " + videoPath);
 

@@ -64,7 +64,7 @@ public class CourseServiceImpl implements CourseService {
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
         //String imagePath =  "photos/course/"+file.getOriginalFilename();
         String imagePath =  images_upload_path+file.getOriginalFilename();
-        
+
         System.out.println("File name " + file.getOriginalFilename());
         System.out.println("image path " + imagePath);
         System.out.println(dto.toString());

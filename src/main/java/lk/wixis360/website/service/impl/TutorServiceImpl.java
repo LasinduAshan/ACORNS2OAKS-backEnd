@@ -54,7 +54,7 @@ public class TutorServiceImpl implements TutorService {
         Tutor c = mapper.map(dto, Tutor.class);
         c.setTid(tutorID);
         c.setDesignation(dto.getModel1());
-        c.setImgPath("photos/tutor/avater1.png");
+        c.setImgPath("avater1.png");
         repo.save(c);
 
       /*  for (String designation : dto.getModel1()) {
@@ -81,7 +81,7 @@ public class TutorServiceImpl implements TutorService {
     public void updateTutorPhoto(String tid) {
         if (repo.existsById(tid)) {
             Tutor one = repo.getOne(tid);
-            one.setImgPath("photos/tutor/avater1.png");
+            one.setImgPath("avater1.png");
             repo.save(one);
         } else {
             throw new RuntimeException("No such tutor for delete image..!");
@@ -96,7 +96,8 @@ public class TutorServiceImpl implements TutorService {
 
         String interrPath = tutor_image_upload_path+file.getOriginalFilename();
         //String imagePath =  "photos/tutor/"+file.getOriginalFilename();
-        String imagePath =  tutor_image_upload_path+file.getOriginalFilename();
+        //String imagePath =  tutor_image_upload_path+file.getOriginalFilename();
+        String imagePath =  file.getOriginalFilename();
 
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
         System.out.println("File name " + file.getOriginalFilename());

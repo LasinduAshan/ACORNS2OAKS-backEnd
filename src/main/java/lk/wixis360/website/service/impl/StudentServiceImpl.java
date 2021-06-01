@@ -49,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
         String studentID = UUID.randomUUID().toString();
         Student c = mapper.map(dto, Student.class);
         c.setId(studentID);
-        c.setImgPath("photos/student/avater.png");
+        c.setImgPath("avater.png");
 
         repo.save(c);
 
@@ -122,7 +122,7 @@ public class StudentServiceImpl implements StudentService {
         if (repo.existsById(email)) {
             //Student c = mapper.map(dto, Student.class);
             Student c = repo.getOne(email);
-            c.setImgPath("photos/student/avater.png");
+            c.setImgPath("avater.png");
             repo.save(c);
         } else {
             throw new RuntimeException("No such student for update..!");
@@ -137,7 +137,8 @@ public class StudentServiceImpl implements StudentService {
         String interrPath = student_image_upload_path+file.getOriginalFilename();
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/photos/student/"+file.getOriginalFilename();
         //String imagePath =  "photos/student/"+file.getOriginalFilename();
-        String imagePath =  student_image_upload_path+file.getOriginalFilename();
+        //String imagePath =  student_image_upload_path+file.getOriginalFilename();
+        String imagePath =  file.getOriginalFilename();
 
         //String imagePath =  "../assets/photos/"+file.getOriginalFilename();
         System.out.println("File name " + file.getOriginalFilename());

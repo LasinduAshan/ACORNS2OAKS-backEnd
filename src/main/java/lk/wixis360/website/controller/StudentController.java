@@ -6,13 +6,18 @@ import lk.wixis360.website.service.AccountService;
 import lk.wixis360.website.service.StudentService;
 import lk.wixis360.website.util.StandardResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.activation.FileTypeMap;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 @RestController
@@ -24,6 +29,16 @@ public class StudentController {
     StudentService studentService;
     @Autowired
     AccountService accountService;
+
+    @Value("${student.image.upload.path}")
+    String IMAGE_UPLOAD_PATH;
+
+    @RequestMapping(value = "/image_uploads/{name:.+}", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> getImage(@PathVariable String name) throws IOException {
+        File img = new File(IMAGE_UPLOAD_PATH + name);
+        return ResponseEntity.ok().contentType(MediaType.valueOf(FileTypeMap.getDefaultFileTypeMap().getContentType(img))).body(Files.readAllBytes(img.toPath()));
+    }
+
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity addStudent(@RequestBody StudentDTO dto){

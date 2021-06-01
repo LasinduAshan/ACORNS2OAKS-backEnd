@@ -39,6 +39,19 @@ public class CourseController {
 
 
 
+    @Value("${videos.upload.path}")
+    String VIDEO_UPLOAD_PATH;
+
+
+
+    @RequestMapping(value = "/video_uploads/{name:.+}", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> getVideo(@PathVariable String name) throws IOException {
+        File img = new File(VIDEO_UPLOAD_PATH + name);
+        return ResponseEntity.ok().contentType(MediaType.valueOf(FileTypeMap.getDefaultFileTypeMap().getContentType(img))).body(Files.readAllBytes(img.toPath()));
+    }
+
+
+
     @RequestMapping(value = "/image_uploads/{name:.+}", method = RequestMethod.GET)
     public ResponseEntity<byte[]> getImage(@PathVariable String name) throws IOException {
         File img = new File(IMAGE_UPLOAD_PATH + name);

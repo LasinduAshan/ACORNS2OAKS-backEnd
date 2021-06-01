@@ -57,7 +57,8 @@ public class FileUploadServiceImpl implements FileUploadService {
         //String interrPath = "E:/Quasar Projects/wixis-360-new/ACORNS2OAKS/public/videos/" + files.getOriginalFilename();
         //String videoPath =  "../assets/videos/"+files.getOriginalFilename();
         //String videoPath =  "videos/"+files.getOriginalFilename();
-        String videoPath =  videos_upload_path+files.getOriginalFilename();
+        //String videoPath =  videos_upload_path+files.getOriginalFilename();
+        String videoPath =  files.getOriginalFilename();
 
         System.out.println("File name " + files.getOriginalFilename());
         System.out.println("video path " + videoPath);

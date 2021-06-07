@@ -13,7 +13,7 @@ public class AppWideExceptionHandler {
     public ResponseEntity handleException(RuntimeException ex){
         StandardResponse response = new StandardResponse(500, "error", ex.getMessage());
         ex.printStackTrace();
-        return new ResponseEntity(response, HttpStatus.OK);
+        return new ResponseEntity(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

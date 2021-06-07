@@ -85,7 +85,8 @@ public class RegistrationServiceImpl implements RegistrationService {
 //            //System.out.println("Rating Count for courseID         ....."+count);
 
 
-            cou.add(new CourceDTO(r.getCource().getCid(),r.getCource().getTitle(),r.getCource().getDeteails(),r.getCource().getTutor().getTid(),student.getImgPath(),rate));
+            cou.add(new CourceDTO(r.getCource().getCid(),r.getCource().getTitle(),r.getCource().getDeteails(),r.getCource().getTutor().getTid(),r.getCource().getImgPath(),rate));
+            //cou.add(new CourceDTO(r.getCource().getCid(),r.getCource().getTitle(),r.getCource().getDeteails(),r.getCource().getTutor().getTid(),student.getImgPath(),rate));
         }
 
         return cou;

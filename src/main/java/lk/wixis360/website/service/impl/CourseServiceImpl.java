@@ -287,7 +287,8 @@ public class CourseServiceImpl implements CourseService {
             String tutorLName= c.getTutor().getLastName();
             String tutorName = tutorFName+" "+tutorLName;
             cou.add(new CourceDTO(c.getCid(),c.getTitle(),c.getDeteails()
-                    , tutorName ,c.getTutor().getImgPath(),c.getTutor().getTid(),rate
+                    , tutorName ,c.getImgPath(),c.getTutor().getTid(),rate
+                    /*, tutorName ,c.getTutor().getImgPath(),c.getTutor().getTid(),rate*/
             ));
         }
 
